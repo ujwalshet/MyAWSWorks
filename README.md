@@ -11,9 +11,13 @@ Its most effective, fully automated and cost effective (Uses free tier resources
 **Components**
 
 Amazon EC2: The compute instances being monitored
+
 AWS Lambda: Python fun triggered every 5 minutes
+
 CloudWatch EventBridge: Schedule to invoke Lambda
+
 SNS (Simple Notification Service): Sends alert emails
+
 IAM Role: Grants Lambda access to EC2 and SNS
 
 **Benefits**
@@ -27,6 +31,9 @@ Easily extendable: reboot unhealthy instances, send Slack alerts, write to S3, e
 **Deployment Steps**
 
 Create an SNS Topic Name: EC2HealthAlerts Add your email as a subscriber and confirm it
+
 Create an IAM Role - Lambda Add permissions: ec2:DescribeInstanceStatus sns:Publish logs:* (optional - CloudWatch logging)
-Create the Lambda Function Runtime: Python 3.10 Paste the code above Replace TOPIC_ARN with your actual SNS ARN
+
+Create the Lambda Function Runtime: Python 3.10 Paste the Python Code Replace TOPIC_ARN with your actual SNS ARN
+
 Create a CloudWatch EventBridge Rule Schedule: rate(5 minutes) Target: your Lambda fun 
