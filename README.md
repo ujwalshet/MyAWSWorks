@@ -1,4 +1,4 @@
-# MyAWSWorks
+# AWS Project
 EC2 Instance Health Monitoring using AWS Lambda and SNS
 
 A serverless project to monitor the health of the EC2 instances using AWS Lambda. If any EC2 instance is found to be unhealthy or stopped state, an email alert is sent using SNS. Basically, it checks the beow mentioned points:
